@@ -7,7 +7,7 @@ from app.services.core.security import hash_password, verify_password
 
 
 def get_user(db: Session, id: int):
-    user = user_repository.get(db, id)
+    user = user_repository.get_by_id(db, id)
     if not user:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
     return user
